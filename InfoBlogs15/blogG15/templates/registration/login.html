@@ -4,26 +4,47 @@
 <title>{% block title %} Login de Usuario {% endblock title %}</title>
 
 {% block contenido %}
-<center>
-    <form method="POST" style="margin-top: 300px;">
-        <h1 class="h1">Iniciar sesión</h1>
-        <br>
-        <div class="messages">
-            {% for message in messages %}
-                <table {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</table>
-            {% endfor %}
-        </div>
-        <br>
-        {% csrf_token %}
-        <div class="container">
-            <table>{{ form }}</table>
-            <br>
-            <a style="color: black;" href="{% url 'apps.usuario:registrar' %}">¿Todavía no estás registrado? ¡Registrate!</a>
-            <br>
-            <a style="color: black;" href="{% url 'apps.usuario:password_reset' %}">¿Olvidaste tu contraseña? Reestablecela</a>
-            <br><br>
-            <button type="submit" class="btn btn-success btn-lg px-3">Iniciar sesión</button>
-        </div>
-    </form>
-</center>
+
+<section class="contact-us">
+    <div class="container">
+      <div class="row">      
+        <div class="col-lg-12">
+          <div class="down-contact">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="sidebar-item contact-form">
+                  <div class="sidebar-heading">
+                    <h2>Envía un Mensaje</h2>
+                  </div>
+                  <div class="content">
+                    <form method="POST" style="margin: 50px;">
+                        <h1 class="h1" style="text-align: center;">Iniciar sesión</h1>
+                        <br>
+                        <div class="messages">
+                            {% for message in messages %}
+                                <table {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</table>
+                            {% endfor %}
+                        </div>
+                        <br>
+                        {% csrf_token %}
+                        <div class="container">
+                            <table>{{ form }}</table>
+                            <br>
+                            <a style="color: black;" href="{% url 'apps.usuario:registrar' %}">¿Todavía no estás registrado? ¡Registrate!</a>
+                            <br>
+                            <a style="color: black;" href="{% url 'apps.usuario:password_reset' %}">¿Olvidaste tu contraseña? Reestablecela</a>
+                            <br><br>
+                        <button type="submit" class="btn btn-success btn-lg px-3">Iniciar sesión</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>           
+      </div>
+    </div>
+  </section>
+
+
 {% endblock %}

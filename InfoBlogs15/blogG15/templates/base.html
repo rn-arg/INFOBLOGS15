@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/templatemo-stand-blog.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
-   </head>
+  </head>
   <body>
 
     <!-- ***** Preloader Start ***** -->
@@ -34,6 +35,7 @@
     <!-- ***** Preloader End ***** -->
 
     <!-- Header -->
+    {% with namespace=request.resolver_match.namespace url_name=request.resolver_match.url_name %}
     <header class="">
       <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -43,26 +45,36 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item {% if url_name == 'index' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'index' %}">Inicio
                   <span class="sr-only">(current)</span>
                 </a>
               </li> 
-              <li class="nav-item">
+              <li class="nav-item {% if url_name == 'about' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'about' %}">Acerca De</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {% if url_name == 'posts' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'apps.posts:posts' %}">Publicaciones</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item {% if url_name == 'contacto' %} active {% endif %}">
                 <a class="nav-link" href="{% url 'apps.contacto:contacto' %}">Contacto</a>
               </li>
+              {% if user.is_athenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'apps.usuario:logout' %}">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item {% if url_name == 'login' %} active {% endif %}">
+                <a class="nav-link" href="{% url 'apps.usuario:login' %}">Login</a>
+              </li>
+              {% endif %}
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    
+    {%endwith%}
+
     {% block contenido %}
 
 
