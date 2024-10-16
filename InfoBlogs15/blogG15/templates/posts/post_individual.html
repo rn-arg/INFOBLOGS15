@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <br>
+    <h1>{{ posts.titulo }}</h1>
+    <img src="{{ posts.imagen.url }}">
+    {% if posts.subtitulo != None %}
+    <h2>{{ posts.subtitulo }}</h2>
+    {% endif %}
+    <br>
+    <h6>{{ posts.texto }}</h6>
+    <li>Subido por {{ posts.usuario_FK }}</li>
+{% endblock %}

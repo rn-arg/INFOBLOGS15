@@ -1,0 +1,12 @@
+#Instalar paquetes de entorno virtual
+#Crear Entorno virtual
+
+pip istall pillow -> Dependencia para el manejo de imágenes en un proyecto.
+
+pip freeze -> Muestra las dependencias que utiliza el proyecto.
+
+pip freeze > requirementes.txt -> guarda un .txt con las dependencias que utiliza el proyecto.
+
+pip install -r requirements.txt -> Instala automáticamente las dependencias que necesita el proyecto.
+
+python manage.py createsuperuser

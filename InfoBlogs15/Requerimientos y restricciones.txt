@@ -1,0 +1,10 @@
+Login
+Registro de usuario
+Publicar posteos
+Comentar Posteos
+
+Usuario Administrador:
+Debe poder modificar y eliminar posteos y comentarios (aparte de todo
+lo que puede hacer un usuario común)
+Además tienen que poder mostrar los últimos posteos separar los posteos
+por categoría y poder realizar búsquedas

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+
+<select class="form-select form-select-lg mb-3" margin-right="50px" margin-left="100px" aria-label="Large select example" >
+    <option selected >Open this select menu</option>
+    <option value="1">Categoria 1</option>
+    <option value="2">Categoria 2</option>
+    <option value="3">Three</option>
+</select>
+                    
+<select class="form-select form-select-sm" style="margin: auto" aria-label="Small select example">
+    <option selected>Open this select menu</option>
+    <option value="1">Mas viejos</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+
+{% for i in posts %}
+        <br>
+        <h1>{{ i.titulo }}</h1>
+        {% if posts.subtitulo != None %}
+            <h2>{{ posts.subtitulo }}</h2>
+        {% endif %}
+        <h3>{{ i.categoria }}</h3>
+
+        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
+            Ingresá a este Post
+        </a>
+        <br>
+        
+        {% empty %}
+        <h1>No hay posts para mostrar</h1>
+    {% endfor %}
+{% endblock %}
